@@ -110,3 +110,13 @@ describe("sumOfAllCubed", () => {
 })
 
 // b) Create the function that makes the test pass.
+// PSEUDO
+// create a function that takes in an array for numbers
+// iterate through the array -.map()- and elevate each element (number) to the third power - might use Math.pow()
+// use .reduce() higher order function to sum all of the elements in the new array.
+
+const sumOfAllCubed = (arr) => {
+  return arr.map((item) => {
+    return Math.pow(item, 3)
+  }).reduce((a, b) => a + b, 0)
+}

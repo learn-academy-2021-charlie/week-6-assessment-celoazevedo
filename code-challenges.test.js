@@ -57,12 +57,21 @@ const aboutEachPerson = (arr) => {
 
 // a) Create a test with an expect statement using the variables provided.
 
-var hodgepodge1 = [23, "Heyyyy!", 45, -10, 0, "Yo", false]
-// Expected output: [ 2, 0, -1, 0 ]
-var hodgepodge2 = [5, "Hola", 43, -34, "greetings", true]
-// Expected output: [ 2, 1, -1 ]
+// var hodgepodge1 = [23, "Heyyyy!", 45, -10, 0, "Yo", false]
+// // Expected output: [ 2, 0, -1, 0 ]
+// var hodgepodge2 = [5, "Hola", 43, -34, "greetings", true]
+// // Expected output: [ 2, 1, -1 ]
 
-
+describe("onlyRemaindersOfNums", () => {
+  test("returns an array of only the REMAINDERS of the numbers when divided by 3", () => {
+    let hodgepodge1 = [23, "Heyyyy!", 45, -10, 0, "Yo", false]
+    // Expected output: [ 2, 0, -1, 0 ]
+    let hodgepodge2 = [5, "Hola", 43, -34, "greetings", true]
+    // Expected output: [ 2, 1, -1 ]
+    expect(onlyRemaindersOfNums()).toEqual([ 2, 0, -1, 0 ])
+    expect(onlyRemaindersOfNums()).toEqual([ 2, 1, -1 ])
+  })
+})
 
 // b) Create the function that makes the test pass.
 

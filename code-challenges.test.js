@@ -93,11 +93,20 @@ const onlyRemaindersOfNums = (arr) => {
 
 // a) Create a test with an expect statement using the variables provided.
 
-var cubeAndSum1 = [2, 3, 4]
-// Expected output: 99
-var cubeAndSum2 = [0, 5, 10]
-// Expected output: 1125
+// var cubeAndSum1 = [2, 3, 4]
+// // Expected output: 99
+// var cubeAndSum2 = [0, 5, 10]
+// // Expected output: 1125
 
-
+describe("sumOfAllCubed", () => {
+  test("returns the sum of all the numbers cubed", () => {
+    let cubeAndSum1 = [2, 3, 4]
+    // Expected output: 99
+    let cubeAndSum2 = [0, 5, 10]
+    // Expected output: 1125
+    expect(sumOfAllCubed(cubeAndSum1)).toEqual(99)
+    expect(sumOfAllCubed(cubeAndSum2)).toEqual(1125)
+  })
+})
 
 // b) Create the function that makes the test pass.

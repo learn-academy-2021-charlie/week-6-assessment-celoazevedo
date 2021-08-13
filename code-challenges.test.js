@@ -38,7 +38,19 @@ describe("aboutEachPerson", () => {
 
 
 // b) Create the function that makes the test pass.
+// PSEUDO
+// create a function that takes an array of objects as an argument
+// iterate through the array to access each object
+  // i am thinking about using .map() to access each object and its property and return it as a string sentence using string interpolation (might be abble to capitalize the name here).
+  // did a lot of string manipulation here spliting (to convert it into an array) the names in order to access the first letter of each word that makes up the name. Used indexing position and the builtin method toUpperCase() to access and capitalize the first letter and concatenated it with the remaining letters of the word using the built in method .substring().
+// return an array with 3 strings (sentences).
+// The test is passing! But I agree with whoever says that this is not ease to read....
 
+const aboutEachPerson = (arr) => {
+  return arr.map((item) => {
+    return `${item.name.split(' ')[0][0].toUpperCase()}${item.name.split(' ')[0].substring(1)} ${item.name.split(' ')[1][0].toUpperCase()}${item.name.split(' ')[1].substring(1)} is a ${item.occupation}.`
+  })
+}
 
 
 // --------------------2) Create a function that takes in a mixed data array and returns an array of only the REMAINDERS of the numbers when divided by 3.

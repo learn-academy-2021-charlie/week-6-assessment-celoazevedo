@@ -68,14 +68,26 @@ describe("onlyRemaindersOfNums", () => {
     // Expected output: [ 2, 0, -1, 0 ]
     let hodgepodge2 = [5, "Hola", 43, -34, "greetings", true]
     // Expected output: [ 2, 1, -1 ]
-    expect(onlyRemaindersOfNums()).toEqual([ 2, 0, -1, 0 ])
-    expect(onlyRemaindersOfNums()).toEqual([ 2, 1, -1 ])
+    expect(onlyRemaindersOfNums(hodgepodge1)).toEqual([ 2, 0, -1, 0 ])
+    expect(onlyRemaindersOfNums(hodgepodge2)).toEqual([ 2, 1, -1 ])
   })
 })
 
 // b) Create the function that makes the test pass.
+// PSEUDO
+// create a function that takes in an array as an argument
+// use .filter() to filter out all of the elements of data type 'number'
+// use .map() to iterate through the new (only numbers) array and perform a % modulus by 3 operation to return the remainder of the numbers when divided by 3.
+// return the final array. 
+// did some refactoring to avoid calling a new variable in the function by chaining .filter().map()
 
-
+const onlyRemaindersOfNums = (arr) => {
+  return arr.filter((item) => {
+    return typeof item === 'number'})
+    .map((item) => {
+    return item % 3
+  })
+}
 
 // --------------------3) Create a function that takes in an array of numbers and returns the sum of all the numbers cubed.
 

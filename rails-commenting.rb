@@ -40,7 +40,7 @@ class BlogPostsController < ApplicationController
 
   def update
     @post = BlogPost.find(params[:id])
-    # ---7) bellow we are applying the update method to the specific @post instance declared and defined above. we are passing into the update method the strong params blog_post_params (defined on the bottom of the code block under private). This will determine the properties that can be saved to teh database once the instance is updated.
+    # ---7) bellow we are applying the update method to the specific @post instance declared and defined above. we are passing into the update method the strong params blog_post_params (defined on the bottom of the code block under private). This will determine the properties that can be saved to the database once the instance is updated.
     @post.update(blog_post_params)
     if @post.valid?
       redirect_to blog_post_path(@post)

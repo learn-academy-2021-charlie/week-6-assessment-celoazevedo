@@ -18,43 +18,105 @@
 
 // a) Create a test with an expect statement using the variable provided.
 
-var people = [
-  { name: "ford prefect", occupation: "hitchhiker" },
-  { name: "zaphod beeblebrox", occupation: "president of the galaxy" },
-  { name: "arthur dent", occupation: "radio employee" }
-]
+// var people = [
+//   { name: "ford prefect", occupation: "hitchhiker" },
+//   { name: "zaphod beeblebrox", occupation: "president of the galaxy" },
+//   { name: "arthur dent", occupation: "radio employee" }
+// ]
 // Expected output: ["Ford Prefect is a hitchhiker.", "Zaphod Beeblebrox is a president of the galaxy.", "Arthur Dent is a radio employee."]
 
+describe("aboutEachPerson", () => {
+  test("returns an array with a sentence about each person with their names capitalized", () => {
+    let people = [
+      { name: "ford prefect", occupation: "hitchhiker" },
+      { name: "zaphod beeblebrox", occupation: "president of the galaxy" },
+      { name: "arthur dent", occupation: "radio employee" }
+    ]
+    expect(aboutEachPerson(people)).toEqual(["Ford Prefect is a hitchhiker.", "Zaphod Beeblebrox is a president of the galaxy.", "Arthur Dent is a radio employee."])
+  })
+})
 
 
 // b) Create the function that makes the test pass.
+// PSEUDO
+// create a function that takes an array of objects as an argument
+// iterate through the array to access each object
+  // i am thinking about using .map() to access each object and its property and return it as a string sentence using string interpolation (might be abble to capitalize the name here).
+  // did a lot of string manipulation here spliting (to convert it into an array) the names in order to access the first letter of each word that makes up the name. Used indexing position and the builtin method toUpperCase() to access and capitalize the first letter and concatenated it with the remaining letters of the word using the built in method .substring().
+// return an array with 3 strings (sentences).
+// The test is passing! But I agree with whoever says that this is not ease to read....
 
+const aboutEachPerson = (arr) => {
+  return arr.map((item) => {
+    return `${item.name.split(' ')[0][0].toUpperCase()}${item.name.split(' ')[0].substring(1)} ${item.name.split(' ')[1][0].toUpperCase()}${item.name.split(' ')[1].substring(1)} is a ${item.occupation}.`
+  })
+}
 
 
 // --------------------2) Create a function that takes in a mixed data array and returns an array of only the REMAINDERS of the numbers when divided by 3.
 
 // a) Create a test with an expect statement using the variables provided.
 
-var hodgepodge1 = [23, "Heyyyy!", 45, -10, 0, "Yo", false]
-// Expected output: [ 2, 0, -1, 0 ]
-var hodgepodge2 = [5, "Hola", 43, -34, "greetings", true]
-// Expected output: [ 2, 1, -1 ]
+// var hodgepodge1 = [23, "Heyyyy!", 45, -10, 0, "Yo", false]
+// // Expected output: [ 2, 0, -1, 0 ]
+// var hodgepodge2 = [5, "Hola", 43, -34, "greetings", true]
+// // Expected output: [ 2, 1, -1 ]
 
-
+describe("onlyRemaindersOfNums", () => {
+  test("returns an array of only the REMAINDERS of the numbers when divided by 3", () => {
+    let hodgepodge1 = [23, "Heyyyy!", 45, -10, 0, "Yo", false]
+    // Expected output: [ 2, 0, -1, 0 ]
+    let hodgepodge2 = [5, "Hola", 43, -34, "greetings", true]
+    // Expected output: [ 2, 1, -1 ]
+    expect(onlyRemaindersOfNums(hodgepodge1)).toEqual([ 2, 0, -1, 0 ])
+    expect(onlyRemaindersOfNums(hodgepodge2)).toEqual([ 2, 1, -1 ])
+  })
+})
 
 // b) Create the function that makes the test pass.
+// PSEUDO
+// create a function that takes in an array as an argument
+// use .filter() to filter out all of the elements of data type 'number'
+// use .map() to iterate through the new (only numbers) array and perform a % modulus by 3 operation to return the remainder of the numbers when divided by 3.
+// return the final array. 
+// did some refactoring to avoid calling a new variable in the function by chaining .filter().map()
 
-
+const onlyRemaindersOfNums = (arr) => {
+  return arr.filter((item) => {
+    return typeof item === 'number'})
+    .map((item) => {
+    return item % 3
+  })
+}
 
 // --------------------3) Create a function that takes in an array of numbers and returns the sum of all the numbers cubed.
 
 // a) Create a test with an expect statement using the variables provided.
 
-var cubeAndSum1 = [2, 3, 4]
-// Expected output: 99
-var cubeAndSum2 = [0, 5, 10]
-// Expected output: 1125
+// var cubeAndSum1 = [2, 3, 4]
+// // Expected output: 99
+// var cubeAndSum2 = [0, 5, 10]
+// // Expected output: 1125
 
-
+describe("sumOfAllCubed", () => {
+  test("returns the sum of all the numbers cubed", () => {
+    let cubeAndSum1 = [2, 3, 4]
+    // Expected output: 99
+    let cubeAndSum2 = [0, 5, 10]
+    // Expected output: 1125
+    expect(sumOfAllCubed(cubeAndSum1)).toEqual(99)
+    expect(sumOfAllCubed(cubeAndSum2)).toEqual(1125)
+  })
+})
 
 // b) Create the function that makes the test pass.
+// PSEUDO
+// create a function that takes in an array for numbers
+// iterate through the array -.map()- and elevate each element (number) to the third power - might use Math.pow()
+// use .reduce() higher order function to sum all of the elements in the new array.
+
+const sumOfAllCubed = (arr) => {
+  return arr.map((item) => {
+    return Math.pow(item, 3)
+  }).reduce((a, b) => a + b, 0)
+}
